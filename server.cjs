@@ -1,4 +1,4 @@
-const employees = require('./employees.js');
+const employees = require('./employees.cjs');
 const express = require('express');
 const app = express();
 
@@ -35,12 +35,13 @@ app.post('/employees', (req, res, next) => {
   } else {
     employees.push({
       id: idNumber,
-      name, position
+      name, 
+      position
     });
     idNumber++;
     res.send(employees);
   }
-})
+});
 
 app.use((err, req, res, next) => {
   console.log('ERROR MESSAGE', err.message);
